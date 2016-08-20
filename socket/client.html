@@ -19,7 +19,6 @@
     <br/>
     <input type="submit" class="btn btn-success" value="发送数据" onclick="song()">
 </div>
-</body>
 <script>
     var name = '游客' + Math.floor(Math.random() * 1000 + 1);//随机姓名
     document.getElementById('name').innerHTML = name;
@@ -27,13 +26,25 @@
 
     var wsServer = 'ws://127.0.0.1:9501';
     var socket = new WebSocket(wsServer);
+
     socket.onopen = function (evt) {
         if (socket.readyState == 1) {
-            socket.send('{"type":1,"name":"' + name + '"}');
+            var data='{"type":1,"name":"' + name + '"}';
+            socket.send(data);//登录
+            res(data);
         }
     };
+
     socket.onmessage = function (evt) {
-        var rst = eval('(' + evt.data + ')');
+        res(evt.data)
+    };
+
+    /**
+     * 响应结果
+     * @param data
+     */
+    function res(data) {
+        var rst = eval('(' + data + ')');
         switch (rst.type) {
             case 1:
                 addMsg('<front style="color:gray">欢迎' + rst.name + '</front>');
@@ -42,17 +53,23 @@
                 addMsg(rst.name + ':' + rst.msg);
                 break;
         }
-    };
+    }
 
     function addMsg(m) {
         msg.innerHTML += '<li>' + m + '</li>';
     }
 
+    /**
+     * 聊天
+     */
     function song() {
         var m_dom = document.getElementById('text');
         var m = m_dom.value;
         m_dom.value = '';
-        socket.send('{"type":2,"name":"' + name + '","msg":"' + m + '"}');
+        var data = '{"type":2,"name":"' + name + '","msg":"' + m + '"}';
+        socket.send(data);//聊天
+        res(data);//自己发送的消息服务器不会返回
     }
 </script>
+</body>
 </html>

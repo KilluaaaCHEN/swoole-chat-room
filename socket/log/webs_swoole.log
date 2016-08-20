@@ -1,0 +1,15 @@
+[2016-08-18 18:27:29 ^37384.2]	WARN	zm_deactivate_swoole: Fatal error: Using $this when not in object context in /usr/local/var/www/swoole/server.php on line 43.
+[2016-08-19 18:37:12 #27985.0]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:12 $27986.0]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:12 *27994.7]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:12 *27993.6]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:12 *27992.5]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:12 *27991.4]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:12 *27990.3]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:12 *27989.2]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:12 *27987.0]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:12 *27988.1]	WARN	swSignal_callback: signal[1] callback is null.
+[2016-08-19 18:37:37 #27985.0]	NOTICE	Server is shutdown now.
+[2016-08-20 14:13:25 ^78041.8]	WARN	zm_deactivate_swoole: Fatal error: Using $this when not in object context in /usr/local/var/www/swoole/socket/server.php on line 37.
+[2016-08-20 14:13:26 ^78065.8]	WARN	zm_deactivate_swoole: Fatal error: Using $this when not in object context in /usr/local/var/www/swoole/socket/server.php on line 37.
+[2016-08-20 14:14:18 *78490.7]	WARN	zm_deactivate_swoole: Fatal error: Using $this when not in object context in /usr/local/var/www/swoole/socket/server.php on line 28.
