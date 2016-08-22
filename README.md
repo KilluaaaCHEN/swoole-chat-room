@@ -1,22 +1,28 @@
-# Swoole 聊天室
+### 安装`Swoole`
+1. mac安装swoole
 
-### 安装
-```php
-brew install homebrew/php/php56-swoole
-sudo brew services restart httpd24
-```
+		brew install homebrew/php/php56-swoole
+
+2. 重启apache
+
+		sudo brew services restart httpd24
+
+### 下载
+ 	git clone git@github.com:larry-666/swoole-chat-room.git
 
 ### 使用
-运行`swoole websocket server`
+1. 运行`swoole websocket server`
 ```
 cd www
 cd swoole/socket
 php server.php
 ```
-打开`聊天室地址`
-```
-http://localhost/swoole/socket/client.html
-```
+
+3. 打开`http://localhost/swoole/socket/client.html`
 
 ### 演示
 ![演示](http://7xmabi.com1.z0.glb.clouddn.com/blog/swoole-chat-room.gif)
+
+### 帮助
+1. 使用守护进程
+把`$server`的`daemonize`设置为`true`
