@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swoole Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<ol>
+
+</ol>
+<textarea id="msg" rows="5" cols="100"></textarea>
+<br/>
+{"cmd":"login","type":"person","arena":"10","open_id":"test_1"}
+<br/>
+{"cmd":"refresh_room","type":"person","arena":10}
+<br/>
+{"cmd":"person_pk","rival":"1","is_start":0}
+<br/>
+{"cmd":"submit_answer","is_finish":1,"is_right":0,"time":7700}
+<br/>
+{"cmd":"team_pk","is_start":0,"rival":1}
+<br/>
+{"cmd":"team_pk","is_start":1,"rival":1}
+<br/>
+{"cmd":"reject_pk"}
+<br/>
+<input type="button" value="Send" id="send"/>
+
+
+
+<input type="button" value="Close" id="close"/>
+
+<script>
+    var wsServer = 'ws://192.168.5.48:9503/';
+    var socket = new WebSocket(wsServer);
+
+    var open_id = get('open_id');
+    var type = get('type');
+    var arena= get('arena');
+
+    res(open_id);
+
+    socket.onopen = function (evt) {
+        if (socket.readyState == 1) {
+//            var data = '{"cmd":"login","open_id":"' + open_id + '","type":"' + type + '","arena":"' + arena + '"}';
+//            socket.send(data);
+//            res(data);
+        }
+    };
+
+    socket.onmessage = function (evt) {
+        res(evt.data)
+    };
+
+    $('#send').click(function () {
+        socket.send($('#msg').val());
+    });
+
+    $('#close').click(function () {
+        socket.close(1000);
+    });
+
+    /**
+     * 响应结果
+     * @param data
+     */
+    function res(data) {
+        $('ol').append('<li>' + data + '</li>')
+    }
+
+    //获取url中的参数
+    function get(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+</script>
+</body>
+</html>

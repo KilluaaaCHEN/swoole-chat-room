@@ -29,7 +29,6 @@ $server->on('close', function ($ser, $fd) {
     echo "client {$fd} closed\n";
 });
 
-//异步队列发消息
 $server->on('task', function ($serv, $task_id, $from_id, $data) {
     foreach ($serv->connections as $fd) {
         if ($fd != $data['cu_fd']) {

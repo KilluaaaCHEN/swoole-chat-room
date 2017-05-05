@@ -38,7 +38,7 @@ $server->addProcess($process);
 
 $server->on('receive', function ($serv, $fd, $from_id, $data) use ($process) {
     //群发收到的消息
-    $process->write($data);
+    $process->write('qunfa' . $data);
 });
 
 $server->start();
