@@ -21,7 +21,7 @@ php server.php
 3. 打开`http://localhost/swoole/socket/client.html`
 
 ### 演示
-![演示](http://7xmabi.com1.z0.glb.clouddn.com/blog/swoole-chat-room.gif)
+![演示](swoole-chat-room.gif)
 
 ### 帮助
 1. 使用守护进程
